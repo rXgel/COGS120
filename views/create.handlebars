@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">    
+</head>
+<body>
+    <header>
+    <div class="wrapper">
+        <ul class="nav-area">
+        <li><a href="/">Home</a></li>
+        <li><a href="projects">Projects</a></li>
+        <li><a href="login">Login</a></li>
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Menu</button>
+          <div id="myDropdown" class="dropdown-content">
+            <input type="text" placeholder="Search" id="myInput" onkeyup="filterFunction()">
+            <a href="about">About</a>
+            <a href="blog">Blog</a>
+            <a href="notifications">Settings</a>
+            <a href="support">Support</a>
+            <a href="team">Team</a>
+          </div>
+        </div>
+      </div>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+</script>
+        </ul>
+    <div class="create-text">
+        <h1>project name</h1> <!-- someone try to make h1 into jquery user input title from newProj.handlebars -->
+    </div>
+
+    <div class="welcome-text">
+      <h1>Nice! enter more details:</h1>
+      <p>Changes are automatically saved</p><br>
+      <h2>Deadline:</h2>
+      <input type="date" id="date" name="deadline-date" value="03-04-2021" min="2021-01-01" max="2025-12-31">
+      <br><br>
+      <h2>Topic:</h2>
+      <p>Choose one or more topic(s) related to your project</p>
+      <button type="button" class="topicBtn" unchecked>Art</button>
+      <button type="button" class="topicBtn" unchecked>Beauty</button>
+      <button type="button" class="topicBtn" unchecked>Design</button>
+      <button type="button" class="topicBtn" unchecked>Food</button>
+      <button type="button" class="topicBtn" unchecked>Home</button>
+      <br><br>
+      <button type="button" class="topicBtn" unchecked>Music</button>
+      <button type="button" class="topicBtn" unchecked>Pets</button>
+      <button type="button" class="topicBtn" unchecked>Planning</button>
+      <button type="button" class="topicBtn" unchecked>School</button>
+      <button type="button" class="topicBtn" unchecked>Software</button>
+      
+      <br><br>
+      <a href="subtasks">Manage Subtasks</a>
+      <p><a href="notifications">Manage Notifications</a></p>
+      <p><a href="team">Invite Team</a></p>
+  </div>
+</header>
+
+</body>
+</html>

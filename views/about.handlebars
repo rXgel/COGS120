@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">    
+</head>
+<body>
+    <header>
+    	<div class="wrapper">
+        <ul class="nav-area">
+        <li><a href="/">Home</a></li>
+        <li><a href="projects">Projects</a></li>
+        <li><a href="login">Login</a></li>
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Menu</button>
+          <div id="myDropdown" class="dropdown-content">
+            <input type="text" placeholder="Search" id="myInput" onkeyup="filterFunction()">
+            <a href="about">About</a>
+            <a href="blog">Blog</a>
+            <a href="notifications">Settings</a>
+            <a href="support">Support</a>
+            <a href="team">Team</a>
+          </div>
+        </div>
+      </div>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+</script>
+        </ul>
+    </div>
+<div class="about-text">
+    <h1>About</h1>
+    <h2>The problem</h2>
+    <p>Often times, people have difficulty starting a project or goal because they can't seem to plan it out well.
+      To help them, we made this app to allow people to get started and plan out their timeline better. Users can invite their
+      teammates if they are working on a project together, set deadlines, and even add subtasks to their main projects.
+    </p>
+
+    <br><br><br><br><br>
+    <h2>The creators</h2>
+    <p>Kyle Burick</p><br><p>Chaolun (Allen) Cai</p><br><p>Leslie Nguyen</p>
+</header>
+
+</body>
+</html>

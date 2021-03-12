@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+  <div class="wrapper">
+    <ul class="nav-area">
+    <li><a href="/">Home</a></li>
+    <li><a href="projects">Projects</a></li>
+    <li><a href="login">Login</a></li>
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Menu</button>
+      <div id="myDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search" id="myInput" onkeyup="filterFunction()">
+        <a href="about">About</a>
+        <a href="blog">Blog</a>
+        <a href="notifications">Settings</a>
+        <a href="support">Support</a>
+        <a href="team">Team</a>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+/* Project selection dropdown */
+function projDropdown() {
+  document.getElementById("projDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("projInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("projDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+/* Add button */
+function deleteProj(){
+  alert("WARNING: You are about to delete [project name]!");
+  prompt("Type in [project name] to confirm deletion: ");
+
+  //when user clicks on project from dropdown, delete it
+  $('#proj').click(function () { 
+    var select = $("<select></select>").attr("projectName"); 
+    $.each(data, function (deleteProj, data) {  //needs to read from data.json
+      select.append($("<option></option>").attr("projName", data.projectName).remove(); 
+    });
+    $("#projDropdown").html(select); 
+
+/*  //if user input is correct project name, delete; else, wrong
+  if(prompt == data.value){
+    $("#proj").remove();
+  } else {
+    alert("Cannot delete project. Incorrect project name.")
+  }
+
+  alert("Your project has been deleted"); */
+</script>
+
+<div class="welcome-text">
+    <h1>Subtasks</h1>
+    <h2>Choose a project to delete</h2>
+    <div class="dropdown">
+      <button onclick="projDropdown()" class="dropbtn">Select Project</button>
+      {{#each data}}
+      <div id="projDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search" id="projInput" onkeyup="filterFunction()">
+        <a href="#" id="proj">{{projectName}}</a>
+      </div>
+      {{/each}}
+    </div>
+
+    <br><br><br>
+    <h2>Project Name selected</h2>
+    <button onclick="deleteProj()" class="dropbtn">Delete Project</button>
+</div>
+</header>
+</body>
+</html>

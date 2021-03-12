@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subtasks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+  <div class="wrapper">
+    <ul class="nav-area">
+    <li><a href="/">Home</a></li>
+    <li><a href="projects">Projects</a></li>
+    <li><a href="login">Login</a></li>
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Menu</button>
+      <div id="myDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search" id="myInput" onkeyup="filterFunction()">
+        <a href="about">About</a>
+        <a href="blog">Blog</a>
+        <a href="notifications">Settings</a>
+        <a href="support">Support</a>
+        <a href="team">Team</a>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+/* Project selection dropdown */
+function projDropdown() {
+  document.getElementById("projDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("projInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("projDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+/* Add button */
+function addSubtask(){
+  //var projName = $.get("/data.json", data.projectName); <!-- trying to add selected project name to the Alert string-->
+  //alert("Your subtask has been added to ", projName);
+  alert("Your subtask has been added to ");
+}
+</script>
+
+<div class="welcome-text">
+    <h1>Subtasks</h1>
+    <h2>Choose a project to add subtasks to</h2>
+    <div class="dropdown">
+      <button onclick="projDropdown()" class="dropbtn">Select Project</button>
+      {{#each data}}
+      <div id="projDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search" id="projInput" onkeyup="filterFunction()">
+        <a href="#">{{projectName}}</a>
+        <a href="newProj">Make new project</a>
+      </div>
+      {{/each}}
+    </div>
+
+    <br><br><br>
+    <h2>Current subtasks:</h2>
+    <h3>Subtask 1</h3>
+    <p>Deadline: March 10, 2021</p>
+    <br>
+    <h3>Subtask 2</h3>
+    <p>Deadline: March 11, 2021</p>
+
+    <br><br>
+    <h2>Add a subtask: <br> {{projectName}}</h2>
+    <input type="text" id="inputProjName" name="fname" value="Enter subtask">
+    <br><br>
+    <h2>Deadline:</h2>
+    <input type="date" id="date" name="deadline-date" value="03-04-2021" min="2021-01-01" max="2025-12-31">
+    <br><br>
+    <button onclick="addSubtask()" class="dropbtnAdd">Add</button>
+    <br><br>
+    <a href="newProj" class="dropbtn">back</a>
+</header>
+</body>
+</html>

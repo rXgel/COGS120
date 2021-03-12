@@ -1,0 +1,24 @@
+{
+	"data": [
+		{
+			"name": "John Doe",
+			"email": "johndoe@email.com",
+			"password": "cogs120",
+            "projectName": "Code COGS project"
+		},
+		
+		{
+			"name": "Mary Jane",
+			"email": "maryjane@email.com",
+			"password": "randoPassword123",
+            "projectName": "Budgeting financial spendings"		
+		},
+
+		{
+			"name": "Bob Smith",
+			"email": "bobsmith@email.com",
+			"password": "randompassword",
+            "projectName": "Prototype deliverables"		
+		}
+	]
+}
